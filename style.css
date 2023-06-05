@@ -1,0 +1,229 @@
+/* Custom Proprties */
+:root {
+  --violet: hsl(257, 40%, 49%);
+  --soft-magenta: hsl(300, 69%, 71%);
+  --neon-fuchsia: hsl(322, 99%, 67%);
+  --slightly-transparent-white: hsla(0, 0%, 100%, 0.75);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --shadow-clr: hsla(0, 0%, 0%, 0.3);
+
+  --box-shadow-h-offset: 1px;
+  --box-shadow-v-offset: 3px;
+  --box-shadow-blur: 5px;
+  
+
+  --ff-accent: 'Poppins', sans-serif;
+  --ff-base: 'Open Sans', sans-serif;
+
+  --fw-normal: 400;
+  --fw-semibold: 600;
+
+  --btn-padding: .9em 5.8em;
+}
+
+/* Reset */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html, body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/* General styling */
+body {
+  background-color: var(--violet);
+  color: var(--white);
+  font-family: var(--ff-base);
+}
+
+/* Container styling */
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+      'header'
+      'img-col'
+      'txt-col'
+      'footer';
+  grid-gap: 3.5em;
+  place-content: center;
+  padding: 2em 2.5em;
+  background-image: url(images/bg-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 100vh;
+}
+
+.header {
+  grid-area: header;
+}
+
+.header .logo img {
+  width: 130px;
+}
+
+.img-col {
+  grid-area: img-col;
+}
+
+.txt-col {
+  grid-area: txt-col;
+  font-family: var(--ff-accent);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.txt-col .title {
+  margin-bottom: .6em;
+}
+
+.txt-col .paragraph {
+  color: var(--slightly-transparent-white);
+  font-size: .9rem;
+  line-height: 1.7;
+  margin-bottom: 1.5em;
+}
+
+.register-btn {
+  background-color: var(--white);
+  text-decoration: none;
+  color: var(--violet);
+  font-size: .8rem;
+  padding: var(--btn-padding);
+  border-radius: 3em;
+  align-self: center;
+  box-shadow: 
+  var(--box-shadow-h-offset)
+  var(--box-shadow-v-offset)
+  var(--box-shadow-blur)
+  var(--shadow-clr);
+  transition: background-color 0.15s,
+  color 0.15s;
+}
+
+.register-btn:hover {
+  background-color: var(--soft-magenta);
+  color: var(--slightly-transparent-white);
+}
+
+.footer {
+ grid-area: footer;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: .7em;
+}
+
+.footer a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  border: 1px solid var(--white);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: color 0.15s, 
+  border 0.15s;
+}
+
+.footer a i {
+  font-size: .8rem;
+}
+
+.footer a:hover {
+  color: var(--neon-fuchsia);
+  border: 1px solid var(--neon-fuchsia);
+}
+
+@media (min-width: 750px) {
+  .container {
+    background-image: url(images/bg-desktop.svg);
+    grid-template-columns: 2fr 1.5fr;
+    grid-template-areas: 
+      'header header'
+      'img-col txt-col'
+      'footer footer';
+    column-gap: 2.5em;
+    padding: 0 4em;
+  }
+
+  .header .logo img {
+    width: 180px;
+  }
+
+  .txt-col {
+    text-align: left;
+    padding-right: 6em;
+  }
+
+  .txt-col .title {
+    margin-top: 1.5em;
+    font-size: 2.3rem;
+  }
+
+  .register-btn {
+    align-self: start;
+    padding: 1em 5em;
+  }
+
+  .footer {
+    justify-content: end;
+  }
+}
+
+
+
+
+
+
